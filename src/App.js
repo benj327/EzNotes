@@ -6,8 +6,13 @@ function App() {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [transcription, setTranscription] = useState(null);
+  const [warningShown, setWarningShown] = useState(false);
 
   const handleFileChange = (event) => {
+    if (!warningShown) {
+      alert('Please ensure the file size is less than 50MB. The transcription may take around 5 minutes.');
+      setWarningShown(true);
+    }
     setFile(event.target.files[0]);
   };
 
