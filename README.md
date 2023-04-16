@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# EzNotes
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Using this application, users can upload an mp3 file of a lecture or meeting and have it summarized for them in a txt file
 
-## Available Scripts
+## Installation
 
-In the project directory, you can run:
+Requires npm and python3
 
-### `npm start`
+`git clone https://github.com/benj327/EzNotes.git`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`cd Backend`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`python3 server.py`
 
-### `npm test`
+`cd ../`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+`npm start`
 
-### `npm run build`
+## Front End
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+EzNotes uses a fairly simple React front end to take the user file and return the txt file. It's a very minimalistic design in order to keep things functional while still looking modern.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+EzNotes runs a Flask server to handle requests. The backend splits an mp3 file into parts large enough for the Whisper API to accept(25 MB max). It then takes the response and recombines it, before splitting the transcription into groups of 20 sentences to be summarized with a GPT3.5 prompt. These responses are then put into a text document which can be downloaded by the user.
