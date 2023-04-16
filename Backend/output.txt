@@ -1,0 +1,248 @@
+Content:
+
+- Creative Commons license & support for MIT OpenCourseWare
+- Introduction to dynamic programming
+- Excitement for dynamic programming
+- General and powerful design technique
+- Importance of algorithm design and DP in class 006
+- DP for optimization problems, such as shortest paths
+- Goal to minimize or maximize something
+- Dynamic programming is an optimization technique for solving problems
+- Good algorithms for optimization problems usually involve dynamic programming
+- Dynamic programming is like an exhaustive search, but done in a clever way to achieve polynomial time
+- Essentially, dynamic programming is "careful brute force"
+- It is a general approach to solving problems with the only known polynomial time algorithm
+- It has a lot of different ways to think about it and will be discussed in future lectures
+- The technique will be demonstrated through solving easy
+- Optimization is like programming in American English
+- Dynamic programming was invented by Richard Bellman
+- Bellman invented the name to hide his mathematical research from a Secretary of Defense who disliked the term
+- The name is strange but it sounded cool
+- The lecture will start with an example of computing Fibonacci numbers
+- Dynamic programming can be thought of as an equation that will change throughout the lecture.
+Topic: Dynamic Programming and Fibonacci Numbers
+
+- Basic idea of dynamic programming
+- Fibonacci numbers and their recursive definition
+- Goal of computing the nth Fibonacci number
+- Naive recursive algorithm for computing nth Fibonacci number
+- Dynamic programming perspective applied to Fibonacci numbers
+- Reusing solutions to subproblems to solve larger problem
+Algorithm for Fibonacci sequence and its time complexity
+
+- Return value F 
+- Base case: F is 1 
+- Recursive calls for Fibonacci of n minus 1 and n minus 2 
+- Add the two calls together and return the result 
+- The algorithm is correct but bad 
+- Time complexity is exponential 
+- Running time represented as recurrence T of n 
+- Recurrence written using divide and conquer 
+- Recurrence is T of n minus 1 plus T of n minus 2
+- Two ways to solve recurrence
+- One way: see it as Fibonacci recurrence, which relates to golden ratio
+- Another way: reduce T(n-1) to T(n-2), leads to lower bound
+- Multiplying by 2 each time, subtracting 2 from n each time
+- Can subtract 2 from n n/2 times before getting to constant
+- Solution is theta(2^(n/2))
+- Phi in the exponent is a bad algorithm for computing Fibonacci numbers
+- Memoization is a technique of dynamic programming that can make bad algorithms good 
+- Memoized dynamic programming algorithm involves putting computed Fibonacci numbers in a dictionary and checking if they have already been solved 
+- Memoization can be applied to any recursive algorithm 
+- Memoization involves creating an empty dictionary called memo at the beginning.
+Summary:
+
+- Memoization is a technique to improve the efficiency of recursive algorithms.
+- It involves storing the results of computations in a dictionary or memo table.
+- Before computing a result, the algorithm checks if it is already in the memo table and returns it if it is.
+- If the result is not in the memo table, the algorithm computes it and stores it in the memo table for future use.
+- This technique can be applied to any recursive algorithm with no side effects.
+- Memoization makes
+Efficiency of memoization in recursive algorithms for Fibonacci sequence
+
+- Recursive calls disappear due to memo table
+- Recurrence not ideal way to think about running time
+- Two versions of calling Fibonacci of k: non-memoized and memoized
+- Memoized calls cost constant time and can be considered free
+- Non-memoized calls occur only the first time Fibonacci of k is called, n in total
+- Theta notation not needed, Fibonacci of 1 will be called at some point
+- Fibonacci sequence and function calls
+- Max n calls without Fibonacci of n+1
+- Non-memoized calls cost
+- Constant work per call
+- Running time is linear
+- Best algorithm uses log n arithmetic operations
+- Linear is better than exponential
+- n non-memoized calls cost constant
+- Important idea in a general framework
+Title: Understanding Memoization and Dynamic Programming
+
+- Memoization is the act of writing down solutions to sub-problems in dynamic programming.
+- The memo dictionary is where solutions are stored.
+- Memoization allows for the reuse of previously solved sub-problems.
+- Recursive formulation is often used to solve problems in dynamic programming.
+- Sub-problems in dynamic programming are related parts of the original goal problem.
+- The challenge in designing a dynamic program is to figure out what the sub-problems are.
+-
+- Dynamic programming is recursion plus memoization
+- Sub-problems are solved to get to the main problem
+- Running time is equal to number of sub-problems times time per sub-problem
+- Recursive calls are not counted
+- Memoized recursions are not counted after the first time
+- Expensive recursions where work is done are counted
+- Each sub-problem is only counted once
+- Simple idea
+- Dynamic programming is a simple idea
+- It is based on memoization
+- There is an extra trick involved
+- Two perspectives on dynamic programming are presented
+- One perspective involves thinking of a recursive algorithm
+- The other perspective involves starting at the bottom and working up
+- The transformation from the naive recursive algorithm to the memoized algorithm to the bottom-up algorithm is automated.
+Title: Comparison of Two Codes
+
+- Two codes are compared
+- One code replaces n with k
+- Loop and recursion are used in the codes
+- Code with loop is more efficient
+- No difference in the output of both codes
+- Author prefers code with loop
+Title: Computing Fibonacci Numbers
+
+- Lookup into a table
+- Using hash table or array
+- Both constant time with good hashing
+- Computing f1 up to fn
+- Compute it exactly how we used to, except now instead of recursing
+- Computing the k-th Fibonacci number
+- Already computed the previous two
+- Store it in the table
+- Iterate until all sub-problems are solved
+- The one we care about is the n-th one
+Title: Bottom-Up Dynamic Programming and Topological Sorting
+
+- Bottom-up dynamic programming simplifies problem-solving by avoiding repeated transformations
+- Fibonacci sequence is an easy way to write out the code explicitly
+- Can be applied to all dynamic program problems covered in the next four lectures
+- Bottom-up and memoized versions compute the same thing
+- Topological sorting of sub-problem dependency directed acyclic graph (DAG) is key
+- Dependency DAG for Fibonacci is straightforward, with edges going left to
+Perspective on bottom-up algorithms:
+
+- Saving storage space in algorithms
+- Building a table of size n, but only needing to remember the last two values
+- By thinking a little bit, realizing you only need constant space
+- Running time is totally obvious and clearly linear
+- Memoized algorithms require more thought to determine running time
+- Rule for bottom-up algorithms: multiply number of subproblems by time per subproblem
+- Topic: Shortest Paths
+- Goal: Compute the shortest pathway from S to V for all V
+- Approach: Naive recursive algorithm, memoization, bottom-upification
+- Tool: Guessing as a powerful tool
+- Use of divine inspiration not allowed
+- General idea of guessing: Suppose you don't know something, but you'd like to know it
+Topic: Dynamic Programming and the concept of guessing
+
+- The answer to a question is unknown
+- Desiring a cushion
+- Guessing is a tried and tested method for problem-solving
+- The algorithmic concept of dynamic programming is to try all guesses
+- This is central to dynamic programming
+- Dynamic programming is roughly recursion plus memoization plus guessing
+- Memoization and guessing are the central concepts to dynamic programming
+- Dynamic programming is easy, as it involves trying all guesses
+- Br
+- Dynamic programming is useful for optimization problems
+- It involves trying all possible solutions and choosing the best one
+- This principle can be applied to finding shortest paths
+- To find the shortest path from S to V, look at all places you can go from S and their shortest paths to V
+- This can be called S prime
+- Guess first edge approach for finding shortest path
+- Guessing the first edge leads to some inefficiency
+- Tweak to guessing the last edge instead
+- Equivalent to solving single target shortest paths
+- Drawing a picture to guess the last edge, uv
+- If S equals V, there's a special case
+Title: Algorithm for finding the shortest path from S to V
+
+- Introduction: Finding the last edge in a path of length one
+- Step 1: Guess all possible incoming edges to V
+- Step 2: Recursively compute the shortest path from S to u and add on the edge V
+- Step 3: Solve the subproblem of finding delta of S comma u
+- Step 4: There are V subproblems to be solved
+- Step 5: Add the
+- The algorithm finds the shortest path using some last edge
+- It requires a good guess for the right choice of u
+- The algorithm tries all possible guesses
+- The weight of the path is based on the best path from S to u and the weight of uv
+- The algorithm has optimal substructure
+- The recursive algorithm is not efficient and without memoization it is exponential
+- The algorithm is similar to the naive recursive algorithm for Fibonacci
+I. Memoization as a tool to improve algorithms
+- Memoization can improve algorithms
+- Memoization involves checking a memo table and storing values
+
+II. Memoized algorithm for delta of Sv
+- Define delta of Sv
+- Check memo table for S,v
+- If value exists, return it
+- Otherwise, compute using recursive call and store in memo table
+
+III. Evaluation of algorithm
+- Claim that memoization makes things faster
+- Unclear if the algorithm is fast
+-
+Title: Computing shortest paths using delta
+
+- Delta of S comma v computation
+- Delta of S comma A and delta of S comma B required for computation
+- Only one incoming edge to v needed for computation
+- Base case: Delta of S comma S equals 0
+- Shortest path to A computed by analyzing incoming edges
+- Shortest path from B computed through two ways: Delta of S comma B and Delta of S comma v
+- Issue arises as Delta of S comma v
+Title: Analysis of an Algorithm
+
+- Memoization technique to reuse answer to delta S comma v
+- Cannot reuse answer as delta of S comma v is not computed yet
+- Memo table not set, causing infinite algorithm
+- Infinite time on graphs with cycles
+- DAGs (acyclic graphs) run in v plus e time
+- Time = number of subproblems times time per subproblem
+- Number of subproblems = v
+- Reusing subproblems of the form delta S
+- Time for subproblem delta of Sv is the number of incoming edges to v
+- Total time is the sum over all v and v of n degree of v 
+- The algorithm is essentially doing a depth first search to do a topological sort to run one round of Bellman-Ford 
+- The min function is doing the same thing as the Bellman-Ford relaxation step 
+- This is another way to do the same thing as the algorithm for shortest paths and DAGs 
+- It
+- Shortest paths can be solved in general graphs
+- DAGs are useful for solving shortest paths in graphs with cycles
+- Lesson learned: subproblem dependencies should be acyclic for memoization to work
+- Topological sort of the subproblem dependency DAG is needed for a bottom-up algorithm
+- DP and memoization require acyclic graphs for it to work
+- Running time is dependent on whether the graph is acyclic or not
+- Cyclic graphs can be made acyclic by exploding
+- To make a shortest path problem harder, reduce your graph to k copies of the graph
+- Use time as the axis and make edges go from each layer to the next
+- This technique makes any graph acyclic
+- Define delta sub k of sv as the weight of the shortest s to v path that uses at most k edges
+- Look at delta sub 0 of sv as the shortest path from s to v using 0 edges.
+- Shortest path with at most one edge
+- Shortest path with vertical edges included
+- Recurrence for minimum over all last edges
+- New recurrence with s to u using one less edge and edge uv
+- Introduction of k parameter for acyclic recurrence on subproblems
+- Increased number of subproblems to v squared
+- Goal is delta sub v minus 1 of sv for simple paths
+- Assumes no negative weight cycles
+- K ranges from 0 to v minus 1
+Summary:
+
+- Number of subproblems is v squared
+- Time spent per subproblem is equivalent to the in-degree of the problem
+- Running time is ve, which is the same as Bellman-Ford's algorithm
+- Bellman-Ford algorithm came from this view on dynamic programming
+- This approach can be applied to other problems
+- More problems that can use this approach will be discussed in the next three lectures
