@@ -26,4 +26,4 @@ EzNotes runs a Flask server to handle requests. The backend splits an mp3 file i
 
 ## Example
 
-You can check out a sample output from a 51 minute MIT Lecture on dynamic programming taken from YouTube in the Backend/output.txt file. There is also a sample demo available on [YouTube](https://www.youtube.com/watch?v=nUtlPEr-Dp0)
+You can check out a sample output from a [51 minute MIT Lecture on dynamic programming](https://www.youtube.com/watch?v=OQ5jsbhAv_M) in the Backend/output.txt file. There is also a sample demo available on [YouTube](https://www.youtube.com/watch?v=nUtlPEr-Dp0)
